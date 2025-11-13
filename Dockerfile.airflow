@@ -1,0 +1,30 @@
+# Start from the official Airflow image
+# We specify a Python version to ensure consistency
+FROM apache/airflow:2.8.0-python3.11
+
+# Switch to root user to install system dependencies
+# 'build-essential' is needed in case some Python libs need to compile C code
+USER root
+RUN apt-get update && \
+    apt-get install -y build-essential && \
+    apt-get clean
+
+# Switch back to the non-root 'airflow' user for security
+USER airflow
+
+# Install all the Python libraries your DAGs will need
+# We install them all at once to keep the Docker image clean
+RUN pip install --no-cache-dir \
+    "apache-airflow-providers-postgres" \
+    "apache-airflow-providers-docker" \
+    "langchain" \
+    "langchain-community" \
+    "sentence-transformers" \
+    "weaviate-client" \
+    "minio" \
+    "beautifulsoup4" \
+    "requests" \
+    "ollama"
+
+# Note: We add 'ollama' here so the Airflow DAG can
+# use the Python client to talk to your host API
