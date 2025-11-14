@@ -15,7 +15,7 @@ echo "Postgres is up!"
 
 # 2. Run the Airflow database initialization (it's safe to run multiple times)
 echo "Initializing/upgrading Airflow database..."
-airflow db upgrade
+airflow db migrate
 
 # 3. Create the Airflow admin user (safe to run multiple times)
 echo "Creating Airflow admin user..."
