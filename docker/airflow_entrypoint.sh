@@ -29,4 +29,4 @@ airflow users create \
 echo "Admin user created or already exists."
 
 # 4. Hand off to the original Airflow command (e.g., "webserver" or "scheduler")
-exec "$@"
+exec airflow "$@"
