@@ -2,18 +2,25 @@
 # We specify a Python version to ensure consistency
 FROM apache/airflow:2.8.0-python3.11
 
-# Switch to root user to install system dependencies
-# 'build-essential' is needed in case some Python libs need to compile C code
+# 1. Switch to root to perform system-level installs
 USER root
+
+# 'build-essential' is needed in case some Python libs need to compile C code
 RUN apt-get update && \
     apt-get install -y build-essential && \
-    apt-get clean
+    # Clean up apt cache to save space
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Switch back to the non-root 'airflow' user for security
+# 2. Switch back to the airflow user so the app runs securely
 USER airflow
 
-# Install all the Python libraries your DAGs will need
-# We install them all at once to keep the Docker image clean
+# OPTIMIZATION: Install CPU-only PyTorch first.
+# This saves GBs of space because it skips the CUDA (GPU) drivers.
+# Weaviate/Ollama will handle the heavy lifting, so CPU embeddings are fine here.
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
+
+# Install the rest of the libraries
 RUN pip install --no-cache-dir \
     "apache-airflow-providers-postgres" \
     "apache-airflow-providers-docker" \
