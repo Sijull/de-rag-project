@@ -79,7 +79,7 @@ This project is being built using a weekend-based phased plan.
 
   * **Goal:** Build the core RAG logic as standalone Python scripts (`process.py`, `query.py`).
 
-  * **Result:** ...
+  * **Result:** Success. All scripts working properly. The `scraper.py` scrape the data from the URL and store it into MinIO bucket, the `process.py` successfully create embedding model from data chunks, the `query.py` is running the LLM models can read the context from weaviate.
 
 * **\[⬜\] Weekend 3 (TBD): Airflow Orchestration**
 
