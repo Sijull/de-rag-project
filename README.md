@@ -15,9 +15,8 @@ This project is an end-to-end, production-grade RAG (Retrieval-Augmented Generat
 
 ## 🚀 Live Demo
 
-*(You will add your 30-second GIF/video here once you finish Weekend 4)*
+![1122 (1)](https://github.com/user-attachments/assets/d70bcf93-22dd-4b8b-8f96-44fc4230b468)
 
-\[YOUR-DEMO-GIF.gif\]
 
 ---
 
