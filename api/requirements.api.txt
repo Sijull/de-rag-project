@@ -5,3 +5,5 @@ weaviate-client
 sentence-transformers
 ollama
 requests
+numpy==1.26.4
+pydantic

@@ -112,6 +112,10 @@ services:
       - "8501:8501" # Streamlit UI port
     env_file:
       - .env
+    environment:
+      # Ensure this matches the service name above! 
+      # If service is 'rag-api', use 'http://rag-api:8000/chat'
+      - API_URL=http://rag-api:8000/chat
     depends_on:
       - rag-api
 

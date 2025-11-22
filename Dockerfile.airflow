@@ -20,6 +20,8 @@ USER airflow
 # Weaviate/Ollama will handle the heavy lifting, so CPU embeddings are fine here.
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 
+RUN pip install --no-cache-dir "numpy==1.26.4"
+
 # Install the rest of the libraries
 RUN pip install --no-cache-dir \
     "apache-airflow-providers-postgres" \
