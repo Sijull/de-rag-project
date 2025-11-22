@@ -68,33 +68,27 @@ This is the real-world deployment. We run our custom apps in Docker on a single 
 
 This project is being built using a weekend-based phased plan.
 
-* **\[✅\] Weekend 1 (Nov 15-16, 2025): Service Plumbing**
+* **\[✅\] Weekend 1: Service Plumbing**
 
   * **Goal:** Get all 6 services (Airflow, Postgres, MinIO, Weaviate, FastAPI, Streamlit) running and communicating in `docker-compose`.
 
   * **Result:** Success. All containers are green. The Airflow UI, MinIO UI, and Streamlit UI are accessible. The API-to-Ollama connection is confirmed using `host.docker.internal` and the `/test-ollama` endpoint.
 
-* **\[⬜\] Weekend 2 (TBD): The RAG "Brain"**
+* **\[⬜\] Weekend 2: The RAG "Brain"**
 
   * **Goal:** Build the core RAG logic as standalone Python scripts (`process.py`, `query.py`).
 
   * **Result:** Success. All scripts working properly. The `scraper.py` scrape the data from the URL and store it into MinIO bucket, the `process.py` successfully create embedding model from data chunks, the `query.py` is running the LLM models can read the context from weaviate.
 
-* **\[⬜\] Weekend 3 (TBD): Airflow Orchestration**
+* **\[⬜\] Weekend 3: Airflow Orchestration**
 
   * **Goal:** Move the RAG logic into a formal Airflow DAG.
 
   * **Result:** ...
 
-* **\[⬜\] Weekend 4 (TBD): The "Showcase"**
+* **\[⬜\] Weekend 4: The "Showcase"**
 
   * **Goal:** Finalize the FastAPI & Streamlit apps for a clean user experience.
-
-  * **Result:** ...
-
-* **\[⬜\] Weekend 5 (TBD): Documentation & Polish**
-
-  * **Goal:** Record demo, write Medium post, and clean up this README.
 
   * **Result:** ...
 
