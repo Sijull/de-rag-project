@@ -50,19 +50,11 @@ This project solves those problems by architecting a system where:
 
 This project was built locally with a 1-to-1 migration path to a cost-effective, hybrid cloud model.
 
-### 1. Local Prototype Architecture (The Blueprint)
+### 1. System Architecture
 
 This is the system running on the local machine. It uses Docker's `host.docker.internal` to allow the containers to access the GPU-accelerated Ollama server running on the host.
+<img width="1959" height="1196" alt="Diagram Tanpa Judul drawio (3)" src="https://github.com/user-attachments/assets/0bf36bf6-e457-4060-a24b-020f86fa4a03" />
 
-*(You will add your "Local" architecture diagram here)*
-\[YOUR-LOCAL-ARCHITECTURE-DIAGRAM.png\]
-
-### 2. Pragmatic Hybrid Cloud Architecture (The Production Model)
-
-This is the real-world deployment. We run our custom apps in Docker on a single VM (like EC2) for cost and control, but "swap out" the commodity services for their reliable, managed cloud equivalents.
-
-*(You will add your "Hybrid Cloud" architecture diagram here)*
-\[YOUR-HYBRID-CLOUD-ARCHITECTURE-DIAGRAM.png\]
 
 ## 📈 Project Status & Log
 
@@ -84,13 +76,13 @@ This project is being built using a weekend-based phased plan.
 
   * **Goal:** Move the RAG logic into a formal Airflow DAG.
 
-  * **Result:** ...
+  * **Result:** The raw ingestion and vectorizing the data succesfully move into DAG and now its scheduled
 
 * **\[⬜\] Weekend 4: The "Showcase"**
 
   * **Goal:** Finalize the FastAPI & Streamlit apps for a clean user experience.
 
-  * **Result:** ...
+  * **Result:** The API and Chat UI page works perfectly and ready to use.
 
 ## ⚙️ How to Run This Project
 
