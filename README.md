@@ -84,12 +84,15 @@ This project is being built using a weekend-based phased plan.
 
   * **Result:** The API and Chat UI page works perfectly and ready to use.
 
+## 🖥️ System Requirements
+- Any laptop or desktop that atleast have dedicated graphics card with minimum VRAM of 4GB.
+
 ## ⚙️ How to Run This Project
 
 This project is 100% reproducible using Docker. Here is the step by step to start this system.
 
 1. first you can copy or fork this repository. i recommend to install python virtual environtment while working or starting this project.
-  Please spare at least 30GB storage space for the docker containers. Install all requirements like Ollama and Docker on you computer.
+  Please spare at least 30GB storage space for the docker containers. Install all requirements like Ollama and Docker on you computer. 
 
 2. Prepare the .env variables you can use the template in the example. generate fernet key for AIRLFLOW__CORE__FERNET_KEY by running this in terminal:
   ```
