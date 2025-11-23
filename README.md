@@ -66,19 +66,19 @@ This project is being built using a weekend-based phased plan.
 
   * **Result:** Success. All containers are green. The Airflow UI, MinIO UI, and Streamlit UI are accessible. The API-to-Ollama connection is confirmed using `host.docker.internal` and the `/test-ollama` endpoint.
 
-* **\[⬜\] Weekend 2: The RAG "Brain"**
+* **\[✅\] Weekend 2: The RAG "Brain"**
 
   * **Goal:** Build the core RAG logic as standalone Python scripts (`process.py`, `query.py`).
 
   * **Result:** Success. All scripts working properly. The `scraper.py` scrape the data from the URL and store it into MinIO bucket, the `process.py` successfully create embedding model from data chunks, the `query.py` is running the LLM models can read the context from weaviate.
 
-* **\[⬜\] Weekend 3: Airflow Orchestration**
+* **\[✅\] Weekend 3: Airflow Orchestration**
 
   * **Goal:** Move the RAG logic into a formal Airflow DAG.
 
   * **Result:** The raw ingestion and vectorizing the data succesfully move into DAG and now its scheduled
 
-* **\[⬜\] Weekend 4: The "Showcase"**
+* **\[✅\] Weekend 4: The "Showcase"**
 
   * **Goal:** Finalize the FastAPI & Streamlit apps for a clean user experience.
 
