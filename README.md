@@ -86,6 +86,74 @@ This project is being built using a weekend-based phased plan.
 
 ## ⚙️ How to Run This Project
 
-*(This section is a placeholder for your future self. You'll fill this in after Weekend 1-2)*
+This project is 100% reproducible using Docker. Here is the step by step to start this system.
 
-This project is 100% reproducible using Docker.
+1. first you can copy or fork this repository. i recommend to install python virtual environtment while working or starting this project.
+  Please spare at least 30GB storage space for the docker containers. Install all requirements like Ollama and Docker on you computer.
+
+2. Prepare the .env variables you can use the template in the example. generate fernet key for AIRLFLOW__CORE__FERNET_KEY by running this in terminal:
+  ```
+  python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"
+  ```
+
+3. Before you run the docker compose you must setup the ollama you can install ollama on your local machine.
+   After installation success open your termimal and run this to verify you ollama installaion
+   ```
+   ollama --version
+   ```
+   you can see you ollama version if your installation is success then we get our model the phi3:mini by running this command
+   ```
+   ollama pull phi3:mini
+   ```
+   after the download success you can run this commnand so that our docker service can use the model from our local machine
+   ```
+   ollama serve
+   ```
+   
+5. If all the env var is set and you local model is set you can run docker build command. this can take time up to 30-45 minutes you can make a coffee while waiting this to finish. open terminal in project folder.
+   ```
+   docker compose up --build
+   ```
+   
+6. After docker compose is up you can check all the service by open it on the broser with `localhost:[the service ports]` you can check all the ports on docker-compose.yml file
+   
+7. If all the components run you can test it by running all scrips int he local_script_test folder. run all this command
+   ```
+   pip install -r requirements.txt
+   python run scraper.py
+   python run process.py
+   python run query.py
+   ```
+   You can verify all the service running after running all of this script make sure you run this command on local_script_test folder.
+   
+8. After you test it on a local you can access the UI streamlit and began chatting with the LLM model.
+
+## 🌐 Accessing Services
+Once all containers are running, you can access the different UIs in your browser:
+
+- RAG App (Streamlit): `http://localhost:8501`
+
+- Apache Airflow UI: `http://localhost:8080`
+
+- User: airflow
+
+- Pass: airflow
+
+- MinIO UI: `http://localhost:9001`
+
+- User/Pass: (As defined in your .env file)
+
+## 🔮 Future Ideas (The "Icebox") and Room for Improvment
+This is a list of features intentionally not built to manage scope, but which could be added later:
+
+- Support for PDF and .docx file uploads.
+
+- A "Fine-Tuning" DAG for the phi3:mini model.
+
+- User authentication for the Streamlit app.
+
+- Migrating from Weaviate to pgvector for an all-Postgres solution.
+
+- Use cloud service like S3 to replace minio or SageMaker for cloud solution of LLM model management
+
+- Use kubernetes to manage our docker container
